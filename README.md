@@ -6,6 +6,6 @@ and React frontend.
 
 ## Installation
 
-    1. $ git clone git@github.com:congajs/conga-full-demo.git
-    2. $ cd conga-full-demo && npm install
-    3. $ npm start
+    $ git clone git@github.com:congajs/conga-full-demo.git
+    $ cd conga-full-demo && npm install
+    $ npm start

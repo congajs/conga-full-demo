@@ -110,6 +110,7 @@ view:
 # This bundle provides the various @Assert:* annotation to add validation rules
 # to models/resources
 # ------------------------------------------------------------------------------
-validation:
+#validation:
 
-    # nothing yet
+#    paths:
+#        - api-bundle:model

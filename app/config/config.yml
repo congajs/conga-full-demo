@@ -1,0 +1,69 @@
+################################################################################
+## This is the main config file to configure the various bundles
+################################################################################
+
+# import other config files
+imports:
+
+    - { resource : parameters.yml }
+    - { resource : bundles.yml }
+
+# the general framework settings
+framework:
+
+    # application settings
+    app:
+        host:  "%app.http.host%"
+        port:  "%app.http.port%"
+
+# webpack stuff
+webpack:
+
+    # turn development mode on/off (dev middleware / hot reloading)
+    development: true
+
+    # the public path to publish files in dev mode under
+    public.path: /build/
+
+    # the path to the config file
+    config.path: "frontend-bundle:resources/public/webpack.common.js"
+
+# bass odm
+bass:
+
+    # the adapters
+    adapters:
+        - bass-nedb
+
+    # the db connections
+    connections:
+
+        nedb.default:
+            adapter:  bass-nedb
+            directory: "%kernel.var_path%/data/nedb"
+
+    # the managers
+    managers:
+
+        nedb.default:
+            adapter:    bass-nedb
+            connection: nedb.default
+            documents:
+                api-bundle: api-bundle:model
+
+            # # attach the custom listener services
+            # listeners:
+            #     user.listener:
+            #         name: user.listener
+            #         listener: '@user.listener'
+            #         events:
+            #             prePersist: onPrePersist
+            #             preUpdate: onPreUpdate
+
+rest:
+
+    attribute.inflection: snake
+
+    model:
+        paths:
+            - api-bundle:model

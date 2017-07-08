@@ -1,9 +1,16 @@
+const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: './index.js',
+
+    context: path.resolve(__dirname),
+
+    entry: {
+        main: ['./index.js']
+    },
     output: {
-        filename: 'bundle.js'
+        filename: '[name].[chunkhash].js'
     },
     module: {
         loaders: [
@@ -21,8 +28,26 @@ module.exports = {
             { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },
             { test: /\.(ttf|eot)$/, loader: 'file-loader' },
         ],
+        // rules: [
+        //     {
+        //         test: /\.css$/,
+        //         use: ExtractTextPlugin.extract({
+        //             fallback: "style-loader",
+        //             use: "css-loader"
+        //         })
+        //     }
+        // ]
     },
     plugins: [
+
+        //new ExtractTextPlugin('[name].[chunkhash].css'),
+
+        // Extract all 3rd party modules into a separate 'vendor' chunk
+        new webpack.optimize.CommonsChunkPlugin({
+          name: 'vendor',
+          minChunks: ({ resource }) => /node_modules/.test(resource),
+        }),
+
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
@@ -41,5 +66,7 @@ module.exports = {
             // Tooltip: "exports-loader?Tooltip!bootstrap/js/dist/tooltip",
             // Util: "exports-loader?Util!bootstrap/js/dist/util",
         })
+
+
     ]
 }

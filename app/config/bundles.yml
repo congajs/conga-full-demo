@@ -15,7 +15,7 @@ bundles:
         - "@conga/framework-view"
         - "@conga/framework-view-twig"
         - "@conga/framework-webpack"
-        - "conga-bass"
+        - "@conga/framework-bass"
         - "@conga/framework-rest"
         - "conga-validation"
 

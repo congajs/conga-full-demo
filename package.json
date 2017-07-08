@@ -1,29 +1,36 @@
 {
   "name": "conga-full-demo",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A demo conga.js project using most of the available bundles",
-  "main": "index.js",
   "scripts": {
     "start": "node app/app.js",
+    "build": "node app/build.js",
+    "watch": "nodemon app/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/congajs/conga-full-demo.git"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@conga/framework": "congajs/conga-framework#2.0.0-dev",
-    "conga-rest": "congajs/conga-rest#2.0.0-dev",
+    "@conga/framework": "latest",
+    "@conga/framework-rest": "congajs/conga-rest#2.0.0-dev",
     "@conga/framework-view": "latest",
     "@conga/framework-view-twig": "latest",
     "@conga/framework-webpack": "congajs/conga-webpack",
-    "conga-bass": "latest",
+    "@conga/framework-bass": "congajs/conga-bass#2.0.0-dev",
     "bass-nedb": "latest",
     "conga-validation": "congajs/conga-validation"
   },
   "devDependencies": {
+    "ajv": "^5.2.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.24.1",
     "bootstrap-loader": "^2.1.0",
     "bootstrap-sass": "^3.3.7",
@@ -32,12 +39,14 @@
     "jasmine": "^2.6.0",
     "jquery": "^3.2.1",
     "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "request": "^2.81.0",
     "resolve-url-loader": "^2.1.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
-    "url-loader": "^0.5.9"
+    "url-loader": "^0.5.9",
+    "webpack": "^3.1.0"
   }
 }

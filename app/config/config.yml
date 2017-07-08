@@ -37,7 +37,8 @@ webpack:
     public.path: /build/
 
     # the path to the config file
-    config.path: "frontend-bundle:resources/public/webpack.common.js"
+    config.paths:
+        - "frontend-bundle:resources/public/webpack.common.js"
 
 # ------------------------------------------------------------------------------
 # @conga/framework-bass

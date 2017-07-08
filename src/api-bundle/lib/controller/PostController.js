@@ -11,4 +11,6 @@ const Controller = require('@conga/framework-rest').BassRestController;
  */
 module.exports = class PostController extends Controller {
 
+
+
 }
